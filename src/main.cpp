@@ -16,7 +16,7 @@ int main() {
     fmt::print(fmt::runtime("The answer is {}."), 42);
 
 
-    printf("%s\n\n\n\n", res.c_str());
+//    printf("%s\n\n\n\n", res.c_str());
     // ++++++++++++++++++++++++++++
 
     Route router;
@@ -50,14 +50,14 @@ int main() {
     data["salas"][1]["horarios"][1]["asientos"][9]["estado"] = "🚩";
     std::cout << data.dump(2).c_str();
 
-    match = router.set("/sala/1/horario/3/asientos/9/");
-    if(match.test("/sala/:sala/horario/:horario/asientos/:asiento/")){
+    match = router.set("/sala/1/horario/1/asientos/1");
+    if(match.test("/sala/:sala/horario/:horario/asientos/:asientos")){
         std::cout << "\n🐳             🐳\n";
         auto sala_s = match.get("sala");
         int sala = std::stoi(sala_s->c_str());
         auto horario_s = match.get("horario");
         int horario = std::stoi(horario_s->c_str());
-        auto asiento_s = match.get("asiento");
+        auto asiento_s = match.get("asientos");
         std::cout << "🐥 asiento_s " << asiento_s->c_str() << "\n\n";
         int asiento = std::stoi(asiento_s->c_str());
         std::cout << "sala: " << sala << " horario: " << horario << " asiento: " << asiento << '\n';
