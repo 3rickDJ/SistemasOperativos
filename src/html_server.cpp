@@ -108,24 +108,16 @@ void html_server::handle_request() {
         return;
     }
 
-    route::Route router;
-    route::Match match = router.set(path);
+    match = router.set(path);
     log(method, path, version, query_params);
 
 
     // First endpoint get asientos
     if (match.test( "/sala/:sala/horario/:horario/asientos")){
-        std::cout << "Matched /prueba.html/:id id="<< match.get("id").value_or("not found") << std::endl;
-        auto sala_s = match.get("sala");
-        int sala = std::stoi(sala_s->c_str());
-        auto horario_s = match.get("horario");
-        int horario = std::stoi(horario_s->c_str());
-        std::cout << "sala: " << sala << " horario: " << horario << '\n';
-        auto asientos = data["salas"][sala]["horarios"][horario]["asientos"];
+        generate_http_response(get_asientos(query_params), "application/json");
+    }else{
+        def_route(path);
     }
-
-
-    def_route(path);
 }
 
 void html_server::log(const std::string& method, const std::string& path, const std::string& version,
@@ -140,8 +132,16 @@ void html_server::log(const std::string& method, const std::string& path, const 
     }
 }
 
-void html_server::get_asientos(const std::map<std::string, std::string> &query_params) {
-
+std::string html_server::get_asientos(const std::map<std::string, std::string> &query_params) {
+    std::cout << "Matched /prueba.html/:id id="<< match.get("id").value_or("not found") << std::endl;
+    auto sala_s = match.get("sala");
+    int sala = std::stoi(sala_s->c_str());
+    auto horario_s = match.get("horario");
+    int horario = std::stoi(horario_s->c_str());
+    std::cout << "sala: " << sala << " horario: " << horario << '\n';
+    auto asientos = data["salas"][sala]["horarios"][horario]["asientos"];
+    std::string body = asientos.dump().c_str();
+    return body;
 }
 
 void html_server::def_route(const std::string& path) {
