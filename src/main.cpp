@@ -15,36 +15,6 @@ int main() {
     std::cout << "Hello, World!" << std::endl;
     fmt::print(fmt::runtime("The answer is {}."), 42);
 
-    json j =
-    {
-        {"pi", 3.141},
-        {"happy", true},
-        {"name", "Niels"},
-        {"nothing", nullptr},
-        {
-            "answer", {
-                {"everything", 42}
-            }
-        },
-        {"list", {1, 0, 2}},
-        {
-            "object", {
-                {"currency", "USD"},
-                {"value", 42.99}
-            }
-        }
-    };
-
-    // add new values
-    j["new"]["key"]["value"] = {"another", "list"};
-
-    // count elements
-    auto s = j.size();
-    j["size"] = s;
-
-    // pretty print with indent of 4 spaces
-    std::cout << std::setw(4) << j << '\n';
-    std::string res = j.dump();
 
     printf("%s\n\n\n\n", res.c_str());
     // ++++++++++++++++++++++++++++
