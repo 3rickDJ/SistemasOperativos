@@ -330,11 +330,11 @@
           "asientos": [
             {
               "numero": 1,
-              "estado": "disponible"
+              "estado": "vendido"
             },
             {
               "numero": 2,
-              "estado": "disponible"
+              "estado": "vendido"
             },
             {
               "numero": 3,
@@ -342,19 +342,19 @@
             },
             {
               "numero": 4,
-              "estado": "disponible"
+              "estado": "vendido"
             },
             {
               "numero": 5,
-              "estado": "disponible"
+              "estado": "vendido"
             },
             {
               "numero": 6,
-              "estado": "disponible"
+              "estado": "vendido"
             },
             {
               "numero": 7,
-              "estado": "disponible"
+              "estado": "vendido"
             },
             {
               "numero": 8,
