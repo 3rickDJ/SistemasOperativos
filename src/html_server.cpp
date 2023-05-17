@@ -7,10 +7,10 @@
 #include <fstream>
 #include "router.h"
 
- html_server::html_server(int port) {
+ html_server::html_server(int port) : match(router) {
     std::ifstream f("cine.json");
     data = json::parse(f);
-     start(port);
+    start(port);
 }
 
 void html_server::start(int PORT) {
@@ -56,13 +56,14 @@ std::string html_server::generate_http_response(const std::string &body, const s
     response << "HTTP/1.1 200 OK\r\n";
     response << "Content-Type: " << content_type << "\r\n";
     response << "Content-Length: " << body.length() << "\r\n";
+    response << "Access-Control-Allow-Origin: *\r\n";
     response << "\r\n";
     response << body;
     return response.str();
 }
 
 bool html_server::parse_http_request(const char *buffer, std::string &method, std::string &path, std::string &version,
-                                     std::map<std::string, std::string> &query_params) {
+                                     std::map<std::string, std::string> &query_params,  std::string &body) {
 
     std::istringstream iss(buffer);
     std::string request_line;
@@ -90,7 +91,15 @@ bool html_server::parse_http_request(const char *buffer, std::string &method, st
             }
         }
     }
-
+    // Extract the body from the request
+    std::string body_line;
+    while (std::getline(iss, body_line)) {
+        // Skip any empty lines until the body is reached
+        if (body_line.empty()) {
+            break;
+        }
+    }
+    body = iss.str();
     return true;
 }
 
@@ -99,9 +108,9 @@ void html_server::handle_request() {
     read(client_sock, buffer, 1024);
 
 
-    std::string method, path, version;
+    std::string method, path, version, body;
     std::map<std::string, std::string> query_params;
-    if (!parse_http_request(buffer, method, path, version, query_params)) {
+    if (!parse_http_request(buffer, method, path, version, query_params, body)) {
         std::stringstream response;
         response << "HTTP/1.1 400 Bad Request\r\n\r\n";
         write(client_sock, response.str().c_str(), response.str().size());
@@ -113,8 +122,12 @@ void html_server::handle_request() {
 
 
     // First endpoint get asientos
-    if (match.test( "/sala/:sala/horario/:horario/asientos")){
-        generate_http_response(get_asientos(query_params), "application/json");
+    if (match.test( "/sala/:sala/horario/:horario/asientos")) {
+        std::string res = generate_http_response(get_asientos(query_params), "application/json");
+        write(client_sock, res.c_str(), res.size());
+    }else if(match.test("/sala/:sala/horario/:horario/asientos/:asientos")){
+        std::string res = generate_http_response(patch_asientos(query_params, body), "application/json");
+        write(client_sock, res.c_str(), res.size());
     }else{
         def_route(path);
     }
@@ -133,7 +146,7 @@ void html_server::log(const std::string& method, const std::string& path, const 
 }
 
 std::string html_server::get_asientos(const std::map<std::string, std::string> &query_params) {
-    std::cout << "Matched /prueba.html/:id id="<< match.get("id").value_or("not found") << std::endl;
+//    std::cout << "Matched /prueba.html/:id id="<< match.get("id").value_or("not found") << "\n";
     auto sala_s = match.get("sala");
     int sala = std::stoi(sala_s->c_str());
     auto horario_s = match.get("horario");
@@ -149,7 +162,8 @@ void html_server::def_route(const std::string& path) {
 
     std::ifstream file(file_path);
     if (!file.good()) {
-        deliver_html("NotFound.html");
+        std::cout << "File not found 😰";
+        deliver_html("/NotFound.html");
     }else{
         deliver_html(path);
     }
@@ -158,6 +172,7 @@ void html_server::def_route(const std::string& path) {
 
 void html_server::deliver_html(const std::string& path){
     std::string file_path = "." + path;
+    std::cout << " file path 🦠" << file_path << "\n";
     std::ifstream file(file_path);
     std::stringstream response;
     //response << "HTTP/1.1 200 OK\r\n\r\n";
@@ -167,4 +182,17 @@ void html_server::deliver_html(const std::string& path){
     }
     std::string  res = generate_http_response(response.str(), "text/html");
     write(client_sock, res.c_str(), res.size());
+}
+
+std::string html_server::patch_asientos(const std::map<std::string, std::string> &query_params, std::string body) {
+    int sala, horario, asientos;
+
+    std::cout << "Matched PATCH asientos\n";
+    sala = std::stoi(match.get("sala")->c_str());
+    horario = std::stoi(match.get("horario")->c_str());
+    asientos = std::stoi(match.get("asientos")->c_str());
+
+    std::cout << "sala: " << sala << " horario: " << horario << "asiento: " << asientos<<'\n';
+    data["salas"][sala]["horarios"][horario]["asientos"][asientos]["estado"] = "vendido";
+    return body;
 }

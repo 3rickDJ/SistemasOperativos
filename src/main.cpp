@@ -1,10 +1,10 @@
 #include <iostream>
-#include <fmt/core.h>
 #include <nlohmann/json.hpp>
 #include <iomanip>
 #include "router.h"
 #include <string>
 #include <fstream>
+#include "html_server.h"
 
 using json = nlohmann::json;
 using namespace route;
@@ -12,8 +12,9 @@ using namespace route;
 json data;
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    fmt::print(fmt::runtime("The answer is {}."), 42);
+
+    html_server server(8080);
+
 
 
 //    printf("%s\n\n\n\n", res.c_str());
