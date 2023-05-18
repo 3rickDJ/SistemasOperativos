@@ -371,6 +371,562 @@
           ]
         }
       ]
+    },
+    {
+      "id": 3,
+      "nombre": "Sala 3",
+      "horarios": [
+        {
+          "hora": "10:00",
+          "asientos": [
+            {
+              "numero": 1,
+              "estado": "disponible"
+            },
+            {
+              "numero": 2,
+              "estado": "vendido"
+            },
+            {
+              "numero": 3,
+              "estado": "disponible"
+            },
+            {
+              "numero": 4,
+              "estado": "disponible"
+            },
+            {
+              "numero": 5,
+              "estado": "disponible"
+            },
+            {
+              "numero": 6,
+              "estado": "vendido"
+            },
+            {
+              "numero": 7,
+              "estado": "disponible"
+            },
+            {
+              "numero": 8,
+              "estado": "disponible"
+            },
+            {
+              "numero": 9,
+              "estado": "disponible"
+            },
+            {
+              "numero": 10,
+              "estado": "disponible"
+            }
+          ]
+        },
+        {
+          "hora": "11:00",
+          "asientos": [
+            {
+              "numero": 1,
+              "estado": "disponible"
+            },
+            {
+              "numero": 2,
+              "estado": "disponible"
+            },
+            {
+              "numero": 3,
+              "estado": "vendido"
+            },
+            {
+              "numero": 4,
+              "estado": "disponible"
+            },
+            {
+              "numero": 5,
+              "estado": "disponible"
+            },
+            {
+              "numero": 6,
+              "estado": "disponible"
+            },
+            {
+              "numero": 7,
+              "estado": "disponible"
+            },
+            {
+              "numero": 8,
+              "estado": "vendido"
+            },
+            {
+              "numero": 9,
+              "estado": "disponible"
+            },
+            {
+              "numero": 10,
+              "estado": "disponible"
+            }
+          ]
+        },
+        {
+          "hora": "12:00",
+          "asientos": [
+            {
+              "numero": 1,
+              "estado": "disponible"
+            },
+            {
+              "numero": 2,
+              "estado": "disponible"
+            },
+            {
+              "numero": 3,
+              "estado": "vendido"
+            },
+            {
+              "numero": 4,
+              "estado": "disponible"
+            },
+            {
+              "numero": 5,
+              "estado": "disponible"
+            },
+            {
+              "numero": 6,
+              "estado": "disponible"
+            },
+            {
+              "numero": 7,
+              "estado": "disponible"
+            },
+            {
+              "numero": 8,
+              "estado": "vendido"
+            },
+            {
+              "numero": 9,
+              "estado": "disponible"
+            },
+            {
+              "numero": 10,
+              "estado": "disponible"
+            }
+          ]
+        },
+        {
+          "hora": "13:00",
+          "asientos": [
+            {
+              "numero": 1,
+              "estado": "vendido"
+            },
+            {
+              "numero": 2,
+              "estado": "vendido"
+            },
+            {
+              "numero": 3,
+              "estado": "vendido"
+            },
+            {
+              "numero": 4,
+              "estado": "vendido"
+            },
+            {
+              "numero": 5,
+              "estado": "vendido"
+            },
+            {
+              "numero": 6,
+              "estado": "vendido"
+            },
+            {
+              "numero": 7,
+              "estado": "vendido"
+            },
+            {
+              "numero": 8,
+              "estado": "vendido"
+            },
+            {
+              "numero": 9,
+              "estado": "disponible"
+            },
+            {
+              "numero": 10,
+              "estado": "disponible"
+            }
+          ]
+        }
+      ]
+    },{
+      "id": 4,
+      "nombre": "Sala 4",
+      "horarios": [
+        {
+          "hora": "10:00",
+          "asientos": [
+            {
+              "numero": 1,
+              "estado": "disponible"
+            },
+            {
+              "numero": 2,
+              "estado": "vendido"
+            },
+            {
+              "numero": 3,
+              "estado": "disponible"
+            },
+            {
+              "numero": 4,
+              "estado": "disponible"
+            },
+            {
+              "numero": 5,
+              "estado": "disponible"
+            },
+            {
+              "numero": 6,
+              "estado": "vendido"
+            },
+            {
+              "numero": 7,
+              "estado": "disponible"
+            },
+            {
+              "numero": 8,
+              "estado": "disponible"
+            },
+            {
+              "numero": 9,
+              "estado": "disponible"
+            },
+            {
+              "numero": 10,
+              "estado": "disponible"
+            }
+          ]
+        },
+        {
+          "hora": "11:00",
+          "asientos": [
+            {
+              "numero": 1,
+              "estado": "disponible"
+            },
+            {
+              "numero": 2,
+              "estado": "disponible"
+            },
+            {
+              "numero": 3,
+              "estado": "vendido"
+            },
+            {
+              "numero": 4,
+              "estado": "disponible"
+            },
+            {
+              "numero": 5,
+              "estado": "disponible"
+            },
+            {
+              "numero": 6,
+              "estado": "disponible"
+            },
+            {
+              "numero": 7,
+              "estado": "disponible"
+            },
+            {
+              "numero": 8,
+              "estado": "vendido"
+            },
+            {
+              "numero": 9,
+              "estado": "disponible"
+            },
+            {
+              "numero": 10,
+              "estado": "disponible"
+            }
+          ]
+        },
+        {
+          "hora": "12:00",
+          "asientos": [
+            {
+              "numero": 1,
+              "estado": "disponible"
+            },
+            {
+              "numero": 2,
+              "estado": "disponible"
+            },
+            {
+              "numero": 3,
+              "estado": "vendido"
+            },
+            {
+              "numero": 4,
+              "estado": "disponible"
+            },
+            {
+              "numero": 5,
+              "estado": "disponible"
+            },
+            {
+              "numero": 6,
+              "estado": "disponible"
+            },
+            {
+              "numero": 7,
+              "estado": "disponible"
+            },
+            {
+              "numero": 8,
+              "estado": "vendido"
+            },
+            {
+              "numero": 9,
+              "estado": "disponible"
+            },
+            {
+              "numero": 10,
+              "estado": "disponible"
+            }
+          ]
+        },
+        {
+          "hora": "13:00",
+          "asientos": [
+            {
+              "numero": 1,
+              "estado": "vendido"
+            },
+            {
+              "numero": 2,
+              "estado": "vendido"
+            },
+            {
+              "numero": 3,
+              "estado": "vendido"
+            },
+            {
+              "numero": 4,
+              "estado": "vendido"
+            },
+            {
+              "numero": 5,
+              "estado": "vendido"
+            },
+            {
+              "numero": 6,
+              "estado": "vendido"
+            },
+            {
+              "numero": 7,
+              "estado": "vendido"
+            },
+            {
+              "numero": 8,
+              "estado": "vendido"
+            },
+            {
+              "numero": 9,
+              "estado": "disponible"
+            },
+            {
+              "numero": 10,
+              "estado": "disponible"
+            }
+          ]
+        }
+      ]
+    },{
+      "id": 5,
+      "nombre": "Sala 5",
+      "horarios": [
+        {
+          "hora": "10:00",
+          "asientos": [
+            {
+              "numero": 1,
+              "estado": "disponible"
+            },
+            {
+              "numero": 2,
+              "estado": "vendido"
+            },
+            {
+              "numero": 3,
+              "estado": "disponible"
+            },
+            {
+              "numero": 4,
+              "estado": "disponible"
+            },
+            {
+              "numero": 5,
+              "estado": "disponible"
+            },
+            {
+              "numero": 6,
+              "estado": "vendido"
+            },
+            {
+              "numero": 7,
+              "estado": "disponible"
+            },
+            {
+              "numero": 8,
+              "estado": "disponible"
+            },
+            {
+              "numero": 9,
+              "estado": "disponible"
+            },
+            {
+              "numero": 10,
+              "estado": "disponible"
+            }
+          ]
+        },
+        {
+          "hora": "11:00",
+          "asientos": [
+            {
+              "numero": 1,
+              "estado": "disponible"
+            },
+            {
+              "numero": 2,
+              "estado": "disponible"
+            },
+            {
+              "numero": 3,
+              "estado": "vendido"
+            },
+            {
+              "numero": 4,
+              "estado": "disponible"
+            },
+            {
+              "numero": 5,
+              "estado": "disponible"
+            },
+            {
+              "numero": 6,
+              "estado": "disponible"
+            },
+            {
+              "numero": 7,
+              "estado": "disponible"
+            },
+            {
+              "numero": 8,
+              "estado": "vendido"
+            },
+            {
+              "numero": 9,
+              "estado": "disponible"
+            },
+            {
+              "numero": 10,
+              "estado": "disponible"
+            }
+          ]
+        },
+        {
+          "hora": "12:00",
+          "asientos": [
+            {
+              "numero": 1,
+              "estado": "disponible"
+            },
+            {
+              "numero": 2,
+              "estado": "disponible"
+            },
+            {
+              "numero": 3,
+              "estado": "vendido"
+            },
+            {
+              "numero": 4,
+              "estado": "disponible"
+            },
+            {
+              "numero": 5,
+              "estado": "disponible"
+            },
+            {
+              "numero": 6,
+              "estado": "disponible"
+            },
+            {
+              "numero": 7,
+              "estado": "disponible"
+            },
+            {
+              "numero": 8,
+              "estado": "vendido"
+            },
+            {
+              "numero": 9,
+              "estado": "disponible"
+            },
+            {
+              "numero": 10,
+              "estado": "disponible"
+            }
+          ]
+        },
+        {
+          "hora": "13:00",
+          "asientos": [
+            {
+              "numero": 1,
+              "estado": "vendido"
+            },
+            {
+              "numero": 2,
+              "estado": "vendido"
+            },
+            {
+              "numero": 3,
+              "estado": "vendido"
+            },
+            {
+              "numero": 4,
+              "estado": "vendido"
+            },
+            {
+              "numero": 5,
+              "estado": "vendido"
+            },
+            {
+              "numero": 6,
+              "estado": "vendido"
+            },
+            {
+              "numero": 7,
+              "estado": "vendido"
+            },
+            {
+              "numero": 8,
+              "estado": "vendido"
+            },
+            {
+              "numero": 9,
+              "estado": "disponible"
+            },
+            {
+              "numero": 10,
+              "estado": "disponible"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
