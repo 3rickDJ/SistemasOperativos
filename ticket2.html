@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket de Venta</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+<div class="container mx-auto px-4 py-8 flex">
+    <div class="bg-white p-8 rounded shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Ticket de Venta</h2>
+
+        <div class="mb-4">
+            <span class="font-bold">Pelicula:</span> <span id="ticket-pelicula">{pelicula}</span>
+        </div>
+        <div class="mb-4">
+            <span class="font-bold">Sala:</span> <span id="ticket-sala">{sala}</span>
+        </div>
+        <div class="mb-4">
+            <span class="font-bold">Horario:</span> <span id="ticket-horario">{horario}</span>
+        </div>
+        <div class="mb-4">
+            <span class="font-bold">Cantidad de Entradas:</span> <span id="ticket-cantidad">{cantidad}</span>
+        </div>
+        <div class="mb-4">
+            <span class="font-bold">Precio por entrada:</span> <span id="ticket-precio">$100</span>
+        </div>
+        <div class="mb-4">
+            <span class="font-bold">Total a cobrar:</span> <span id="ticket-total">${total}</span>
+        </div>
+
+    </div>
+    <img src="img/ticket.jpeg" alt="Imagen de Película 1" class=" object-cover mb-4">
+
+
+</div>
+</body>
+</html>
