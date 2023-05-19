@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Sold Out Movie</title>
+</head>
+
+<body class="bg-gray-100">
+<div class="flex flex-col items-center justify-center h-screen">
+    <div class="bg-gradient-to-r from-pink-400 to-purple-500 p-8 rounded-lg shadow-lg animate-pulse">
+        <p class="text-3xl text-white text-center font-bold">Lo sentimos 😞</p>
+    </div>
+
+    <div class="flex flex-row bg-white p-8 rounded shadow-md place-content-center">
+        <div>
+            <h2 class="text-2xl font-bold mb-4">Más información</h2>
+
+            <div class="mb-8">
+                <span class="font-bold">Pelicula:</span> <span id="ticket-pelicula">{pelicula}</span>
+            </div>
+            <div class="mb-8">
+                <span class="font-bold">Sala:</span> <span id="ticket-sala">{sala}</span>
+            </div>
+            <div class="mb-8">
+                <span class="font-bold">Horario:</span> <span id="ticket-horario">{horario}</span>
+            </div>
+            <div class="mb-8">
+                <span class="font-bold">Cantidad de Entradas:</span> <span id="ticket-cantidad">{cantidad}</span>
+            </div>
+            <div class="mb-8">
+                <span class="font-bold">Entradas restantes:</span> <span id="ticket-total">{restante}</span>
+            </div>
+        </div>
+        <img src="img/{img}" alt="Imagen de Película 1" class=" object-cover ml-48 w-1/5">
+
+    </div>
+    <div class="bg-red-500 text-white p-4 rounded-lg">
+        <p class="text-xl font-semibold">No hay suficientes asientos</p>
+        <p class="text-sm">Lo sentimos, pero los asientos para esta pelicula en este horario y sala no alcanzan para tu peticion.</p>
+    </div>
+    <div class="bg-blue-500 text-white p-4 rounded-lg w-80">
+        <p class="text-sm">Te sugerimos comprar menos boletos, cambiar de sala u horario. En su defecto puedes optar por otra pelicula ❤️</p>
+    </div>
+    <a href="/prueba2.html" class="bg-gradient-to-r from-yellow-400 to-red-500 hover:from-yellow-500 hover:to-orange-600 text-white py-3 px-6 rounded-lg shadow-lg inline-block font-bold text-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+        Regresar
+    </a>
+
+</div>
+</body>
+
+</html>
