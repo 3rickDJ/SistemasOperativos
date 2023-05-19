@@ -7,6 +7,7 @@ using namespace route;
 
 class html_server {
 public:
+    int seats[5][4]={0};
     html_server(int port);
     json data;
     int client_sock;
@@ -18,6 +19,7 @@ public:
     void handle_request();
     std::string get_asientos(const std::map<std::string, std::string>& query_params);
     std::string patch_asientos(const std::map<std::string, std::string>& query_params, std::string body);
+    void render_ticket(std::map<std::string, std::string>& query_params);
 private:
     void log(const std::string& method, const std::string& path, const std::string& version, const std::map<std::string, std::string>& query_params );
     void def_route(const std::string& path);

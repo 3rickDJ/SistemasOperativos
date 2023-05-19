@@ -6,11 +6,17 @@
 #include <sstream>
 #include <fstream>
 #include "router.h"
+#include <fmt/core.h>
 
  html_server::html_server(int port) : match(router) {
     std::ifstream f("cine.json");
     data = json::parse(f);
     start(port);
+     for (int i = 0; i < 5; i++) {
+         for (int j = 0; j < 4; j++) {
+             seats[i][j] = 0;
+         }
+     }
 }
 
 void html_server::start(int PORT) {
@@ -125,12 +131,89 @@ void html_server::handle_request() {
     if (match.test( "/sala/:sala/horario/:horario/asientos")) {
         std::string res = generate_http_response(get_asientos(query_params), "application/json");
         write(client_sock, res.c_str(), res.size());
-    }else if(match.test("/sala/:sala/horario/:horario/asientos/:asientos")){
+    }else if(match.test("/sala/:sala/horario/:horario/asientos/:asientos")) {
         std::string res = generate_http_response(patch_asientos(query_params, body), "application/json");
         write(client_sock, res.c_str(), res.size());
-    }else{
+    } else if(match.test("/sala")) {
+        std::string body = data.dump().c_str();
+        std::string res = generate_http_response(body, "application/json");
+        write(client_sock, res.c_str(), res.size());
+    }
+    else if( path == "/ticket.html"){
+      render_ticket(query_params);
+    }
+    else if( !query_params.empty()){
+        std::string cantidad = query_params["cantidad"];
+        std::string horario = query_params["horario"];
+        std::string pelicula = query_params["pelicula"];
+        std::string sala = query_params["sala"];
+
+
+        int aumento = std::stoi(cantidad);
+        int horario_i = std::stoi(horario);
+        int pelicula_i = std::stoi(pelicula);
+
+
+
+        std::string params = fmt::format("cantidad={}&horario={}&pelicula={}&sala={}", cantidad, horario, pelicula, sala);
+        std::stringstream redirectResponse;
+        redirectResponse << "HTTP/1.1 302 Found\r\n";
+        redirectResponse << "Location: /ticket.html?"<< params <<"\r\n\r\n";
+        std::string res = redirectResponse.str();
+//        if(seats[pelicula_i - 1][horario_i - 1] > 10){
+        if((seats[pelicula_i - 1][horario_i - 1] + aumento > 10)){
+            std::stringstream noSeats;
+            noSeats << "HTTP/1.1 302 Found\r\n";
+            noSeats << "Location: /NotFound.html\r\n\r\n";
+            res = noSeats.str();
+        }else{
+            seats[pelicula_i - 1][horario_i - 1] += aumento;
+        }
+
+        write(client_sock, res.c_str(), res.size());
+    }
+    else{
         def_route(path);
     }
+}
+void html_server::render_ticket(std::map<std::string, std::string> &query_params) {
+    std::string file_path = "./ticket2.html";
+    std::cout << "TICKET 🎫" << file_path << "\n";
+    std::ifstream file(file_path);
+    std::stringstream response;
+    std::string line;
+    while (std::getline(file, line)) {
+        response << line << std::endl;
+    }
+    std::string ticket_template = response.str();
+
+    std::string pelicula, cantidad, horario, sala;
+    cantidad = query_params["cantidad"];
+    horario = query_params["horario"];
+    sala = query_params["sala"];
+    pelicula = query_params["pelicula"];
+    if(pelicula=="1"){ pelicula = "Star Wars: The Force Awakens";}
+    if(pelicula=="2"){ pelicula = "Brave: a Disney Pixar movie";}
+    if(pelicula=="3"){ pelicula = "Interstellar";}
+    if(pelicula=="4"){ pelicula = "Warcraft";}
+    if(pelicula=="5"){ pelicula = "The maze runner";}
+    // horario
+    if(horario=="1"){ horario = "Horario 10:00 AM";}
+    if(horario=="2"){ horario = "Horario 1:00 PM";}
+    if(horario=="3"){ horario = "Horario 4:00 PM";}
+    if(horario=="4"){ horario = "Horario 7:00 PM";}
+
+    int total = std::stoi(cantidad)*100;
+
+    std::string ticket_formated = fmt::format(fmt::runtime(ticket_template), fmt::arg("pelicula",pelicula),
+                                              fmt::arg("pelicula",pelicula),
+                                              fmt::arg("cantidad",cantidad),
+                                              fmt::arg("horario",horario),
+                                              fmt::arg("sala",sala),
+                                              fmt::arg("total", total)
+                                              );
+    std::string  res = generate_http_response(ticket_formated, "text/html");
+    write(client_sock, res.c_str(), res.size());
 }
 
 void html_server::log(const std::string& method, const std::string& path, const std::string& version,
