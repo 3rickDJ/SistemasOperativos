@@ -7,7 +7,7 @@ using namespace route;
 
 class html_server {
 public:
-    int seats[5][4]={0};
+    int seats[5][4][5]={0};
     html_server(int port);
     json data;
     int client_sock;

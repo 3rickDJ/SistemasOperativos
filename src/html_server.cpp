@@ -14,7 +14,9 @@
     start(port);
      for (int i = 0; i < 5; i++) {
          for (int j = 0; j < 4; j++) {
-             seats[i][j] = 0;
+             for (int k = 0; k < 5; j++){
+                 seats[i][j][k] = 0;
+             }
          }
      }
 }
@@ -138,6 +140,44 @@ void html_server::handle_request() {
         std::string body = data.dump().c_str();
         std::string res = generate_http_response(body, "application/json");
         write(client_sock, res.c_str(), res.size());
+    } else if(path == "/SoldOut.html"){
+        std::string cantidad = query_params["cantidad"];
+        std::string horario = query_params["horario"];
+        std::string pelicula = query_params["pelicula"];
+        std::string sala = query_params["sala"];
+        std::string restante = query_params["restante"];
+
+        std::string file_path = "./SoldOut.html";
+        std::cout << "Sold Out ☢️" << file_path << "\n";
+        std::ifstream file(file_path);
+        std::stringstream response;
+        std::string line;
+        while (std::getline(file, line)) {
+            response << line << std::endl;
+        }
+        std::string SoldOut_tmp = response.str();
+        std::string imgUrl;
+        if(pelicula=="1"){pelicula = "Star Wars: The Force Awakens"; imgUrl = "peli1.jpg";}
+        if(pelicula=="2"){ pelicula = "Brave: a Disney Pixar movie"; imgUrl = "peli2.jpg";}
+        if(pelicula=="3"){ pelicula = "Interstellar"; imgUrl = "peli3.jpeg";}
+        if(pelicula=="4"){ pelicula = "Warcraft"; imgUrl = "peli4.jpeg";}
+        if(pelicula=="5"){ pelicula = "The maze runner"; imgUrl = "peli5.jpeg";}
+        // horario
+        if(horario=="1"){ horario = "Horario 10:00 AM";}
+        if(horario=="2"){ horario = "Horario 1:00 PM";}
+        if(horario=="3"){ horario = "Horario 4:00 PM";}
+        if(horario=="4"){ horario = "Horario 7:00 PM";}
+        std::string soldOut = fmt::format(fmt::runtime(SoldOut_tmp), fmt::arg("pelicula",pelicula),
+                                                  fmt::arg("pelicula",pelicula),
+                                                  fmt::arg("cantidad",cantidad),
+                                                  fmt::arg("horario",horario),
+                                                  fmt::arg("sala",sala),
+                                                  fmt::arg("restante", restante),
+                                                  fmt::arg("img", imgUrl)
+        );
+
+        std::string  res = generate_http_response(soldOut, "text/html");
+        write(client_sock, res.c_str(), res.size());
     }
     else if( path == "/ticket.html"){
       render_ticket(query_params);
@@ -152,6 +192,7 @@ void html_server::handle_request() {
         int aumento = std::stoi(cantidad);
         int horario_i = std::stoi(horario);
         int pelicula_i = std::stoi(pelicula);
+        int sala_i = std::stoi(sala);
 
 
 
@@ -160,14 +201,15 @@ void html_server::handle_request() {
         redirectResponse << "HTTP/1.1 302 Found\r\n";
         redirectResponse << "Location: /ticket.html?"<< params <<"\r\n\r\n";
         std::string res = redirectResponse.str();
-//        if(seats[pelicula_i - 1][horario_i - 1] > 10){
-        if((seats[pelicula_i - 1][horario_i - 1] + aumento > 10)){
+        if((seats[pelicula_i - 1][horario_i - 1][sala_i - 1] + aumento > 10)){
+            int restante = 10 - seats[pelicula_i - 1][horario_i - 1][sala_i - 1];
+            params = fmt::format("cantidad={}&horario={}&pelicula={}&sala={}&restante={}", cantidad, horario, pelicula, sala, restante);
             std::stringstream noSeats;
             noSeats << "HTTP/1.1 302 Found\r\n";
-            noSeats << "Location: /NotFound.html\r\n\r\n";
+            noSeats << "Location: /SoldOut.html?"<< params <<"\r\n\r\n";
             res = noSeats.str();
         }else{
-            seats[pelicula_i - 1][horario_i - 1] += aumento;
+            seats[pelicula_i - 1][horario_i - 1][sala_i - 1] += aumento;
         }
 
         write(client_sock, res.c_str(), res.size());
@@ -192,11 +234,12 @@ void html_server::render_ticket(std::map<std::string, std::string> &query_params
     horario = query_params["horario"];
     sala = query_params["sala"];
     pelicula = query_params["pelicula"];
-    if(pelicula=="1"){ pelicula = "Star Wars: The Force Awakens";}
-    if(pelicula=="2"){ pelicula = "Brave: a Disney Pixar movie";}
-    if(pelicula=="3"){ pelicula = "Interstellar";}
-    if(pelicula=="4"){ pelicula = "Warcraft";}
-    if(pelicula=="5"){ pelicula = "The maze runner";}
+    std::string imgUrl;
+    if(pelicula=="1"){pelicula = "Star Wars: The Force Awakens"; imgUrl = "peli1.jpg";}
+    if(pelicula=="2"){ pelicula = "Brave: a Disney Pixar movie"; imgUrl = "peli2.jpg";}
+    if(pelicula=="3"){ pelicula = "Interstellar"; imgUrl = "peli3.jpeg";}
+    if(pelicula=="4"){ pelicula = "Warcraft"; imgUrl = "peli4.jpeg";}
+    if(pelicula=="5"){ pelicula = "The maze runner"; imgUrl = "peli5.jpeg";}
     // horario
     if(horario=="1"){ horario = "Horario 10:00 AM";}
     if(horario=="2"){ horario = "Horario 1:00 PM";}
@@ -210,7 +253,8 @@ void html_server::render_ticket(std::map<std::string, std::string> &query_params
                                               fmt::arg("cantidad",cantidad),
                                               fmt::arg("horario",horario),
                                               fmt::arg("sala",sala),
-                                              fmt::arg("total", total)
+                                              fmt::arg("total", total),
+                                              fmt::arg("img", imgUrl)
                                               );
     std::string  res = generate_http_response(ticket_formated, "text/html");
     write(client_sock, res.c_str(), res.size());
