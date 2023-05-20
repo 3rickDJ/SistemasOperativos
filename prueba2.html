@@ -10,207 +10,259 @@
 </head>
 <body>
 
-<div class="bg-gray-100 p-8">
+<div class="bg-gray-100 p-8 ">
+
     <h1 class="text-3xl font-bold mb-8 text-center text-blue-500">Menú de Películas</h1>
     <h1 class="text-3xl font-bold mb-8">Compra de Boletos</h1>
-    <div class="flex flex-row md:flex-row gap-8 flex-wrap">
-        <div class="flex flex-col md:flex-row gap-8 ">
-            <!-- Película 3 -->
-            <div class="bg-white rounded-lg shadow-md p-8 flex-1">
-                <h2 class="text-xl font-bold mb-4">Película 1</h2>
-                <img src="img/peli1.jpg" alt="Imagen de Película 1" class="w-full object-cover mb-4">
-                <p class="text-gray-700 mb-4">Sinopsis de la película 1</p>
-                <ul class="text-gray-700 mb-4">
-                    <li>Horario 1: 10:00 AM</li>
-                    <li>Horario 2: 1:00 PM</li>
-                    <li>Horario 3: 4:00 PM</li>
-                    <li>Horario 4: 7:00 PM</li>
-                </ul>
-                <form>
-                    <input type="hidden" name="pelicula" value="1">
 
-                    <label for="cantidad1" class="block text-gray-700 font-bold mb-2">Cantidad de Entradas:</label>
-                    <input type="number" id="cantidad1" name="cantidad" min="1" max="10" class="w-16 mb-4">
-                    <label for="sala1" class="block text-gray-700 font-bold mb-2">Seleccione una Sala:</label>
-                    <select id="sala1" name="sala" class="w-full mb-4">
-                        <option value="1">Sala 1</option>
-                        <option value="2">Sala 2</option>
-                        <option value="3">Sala 3</option>
-                        <option value="4">Sala 4</option>
-                        <option value="5">Sala 5</option>
-                    </select>
-                    <label for="horario1" class="block text-gray-700 font-bold mb-2">Seleccione un Horario:</label>
-                    <select id="horario1" name="horario" class="w-full mb-4">
-                        <option value="1">Horario 1: 10:00 AM</option>
-                        <option value="2">Horario 2: 1:00 PM</option>
-                        <option value="3">Horario 3: 4:00 PM</option>
-                        <option value="4">Horario 4: 7:00 PM</option>
-                    </select>
 
-                    <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
-                        Comprar Entrada
-                    </button>
 
-                </form>
+        <div class="flex flex-row md:flex-row gap-8 flex-wrap place-content-center ">
+            <div class="flex flex-col md:flex-col gap-8 w-1/2  ">
+
+                <!-- Película 3 -->
+                <div class="bg-white rounded-lg shadow-md p-8 flex-1">
+                    <h2 class="text-xl font-bold mb-4">Película 1</h2>
+                    <img src="img/peli1.jpg" alt="Imagen de Película 1" class="w-full object-cover mb-4">
+                    <p class="text-gray-700 mb-4">Sinopsis de la película 1</p>
+                    <ul class="text-gray-700 mb-4">
+                        <li>Horario 1: 10:00 AM</li>
+                        <li>Horario 2: 1:00 PM</li>
+                        <li>Horario 3: 4:00 PM</li>
+                        <li>Horario 4: 7:00 PM</li>
+                    </ul>
+                    <form>
+                        <input type="hidden" name="pelicula" value="1">
+
+                        <label for="cantidad1" class="block text-gray-700 font-bold mb-2">Cantidad de Entradas:</label>
+                        <input type="number" id="cantidad1" name="cantidad" min="1" max="10" class="w-16 mb-4">
+                        <label for="sala1" class="block text-gray-700 font-bold mb-2">Seleccione una Sala:</label>
+                        <select id="sala1" name="sala" class="w-full mb-4">
+                            <option value="1">Sala 1</option>
+                            <option value="2">Sala 2</option>
+                            <option value="3">Sala 3</option>
+                            <option value="4">Sala 4</option>
+                            <option value="5">Sala 5</option>
+                        </select>
+                        <label for="horario1" class="block text-gray-700 font-bold mb-2">Seleccione un Horario:</label>
+                        <select id="horario1" name="horario" class="w-full mb-4">
+                            <option value="1">Horario 1: 10:00 AM</option>
+                            <option value="2">Horario 2: 1:00 PM</option>
+                            <option value="3">Horario 3: 4:00 PM</option>
+                            <option value="4">Horario 4: 7:00 PM</option>
+                        </select>
+
+                        <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
+                            Comprar Entrada
+                        </button>
+
+                    </form>
+                </div>
+
+                <!-- Película 3 -->
+                <div class="bg-white rounded-lg shadow-md p-8 flex-1">
+                    <h2 class="text-xl font-bold mb-4">Película 2</h2>
+                    <img src="img/peli2.jpg" alt="Imagen de Película 2" class="w-full object-cover mb-4">
+                    <p class="text-gray-700 mb-4">Sinopsis de la película 2</p>
+                    <ul class="text-gray-700 mb-4">
+                        <li>Horario1: 11:00 AM</li>
+                        <li>Horario 2: 2:00 PM</li>
+                        <li>Horario 3: 5:00 PM</li>
+                        <li>Horario 4: 8:00 PM</li>
+                    </ul>
+                    <form>
+
+                        <input type="hidden" name="pelicula" value="2">
+                        <label for="cantidad2" class="block text-gray-700 font-bold mb-2">Cantidad de Entradas:</label>
+                        <input type="number" id="cantidad2" name="cantidad" min="1" max="10" class="w-16 mb-4">
+                        <label for="sala2" class="block text-gray-700 font-bold mb-2">Seleccione una Sala:</label>
+                        <select id="sala2" name="sala" class="w-full mb-4">
+                            <option value="1">Sala 1</option>
+                            <option value="2">Sala 2</option>
+                            <option value="3">Sala 3</option>
+                            <option value="4">Sala 4</option>
+                            <option value="5">Sala 5</option>
+                        </select>
+                        <label for="horario2" class="block text-gray-700 font-bold mb-2">Seleccione un Horario:</label>
+                        <select id="horario2" name="horario" class="w-full mb-4">
+                            <option value="1">Horario 1: 10:00 AM</option>
+                            <option value="2">Horario 2: 1:00 PM</option>
+                            <option value="3">Horario 3: 4:00 PM</option>
+                            <option value="4">Horario 4: 7:00 PM</option>
+                        </select>
+                        <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
+                            Comprar Entrada
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Película 3 -->
+                <div class="bg-white rounded-lg shadow-md p-8 flex-1">
+                    <h2 class="text-xl font-bold mb-4">Película 3</h2>
+                    <img src="img/peli3.jpeg" alt="Imagen de Película 3" class="w-full object-cover mb-4">
+                    <p class="text-gray-700 mb-4">Sinopsis de la película 3</p>
+                    <ul class="text-gray-700 mb-4">
+                        <li>Horario 1: 9:00 AM</li>
+                        <li>Horario 2: 12:00 PM</li>
+                        <li>Horario 3: 3:00 PM</li>
+                        <li>Horario 4: 6:00 PM</li>
+                    </ul>
+                    <form>
+
+                        <input type="hidden" name="pelicula" value="3">
+                        <label for="cantidad2" class="block text-gray-700 font-bold mb-2">Cantidad de Entradas:</label>
+                        <input type="number" id="cantidad2" name="cantidad" min="1" max="10" class="w-16 mb-4">
+                        <label for="sala2" class="block text-gray-700 font-bold mb-2">Seleccione una Sala:</label>
+                        <select id="sala2" name="sala" class="w-full mb-4">
+                            <option value="1">Sala 1</option>
+                            <option value="2">Sala 2</option>
+                            <option value="3">Sala 3</option>
+                            <option value="4">Sala 4</option>
+                            <option value="5">Sala 5</option>
+                        </select>
+                        <label for="horario2" class="block text-gray-700 font-bold mb-2">Seleccione un Horario:</label>
+                        <select id="horario2" name="horario" class="w-full mb-4">
+                            <option value="1">Horario 1: 10:00 AM</option>
+                            <option value="2">Horario 2: 1:00 PM</option>
+                            <option value="3">Horario 3: 4:00 PM</option>
+                            <option value="4">Horario 4: 7:00 PM</option>
+                        </select>
+                        <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
+                            Comprar Entrada
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Película 4 -->
+                <div class="bg-white rounded-lg shadow-md p-8 flex-1">
+                    <h2 class="text-xl font-bold mb-4">Película 4</h2>
+                    <img src="img/peli4.jpeg" alt="Imagen de Película 4" class="w-full object-cover mb-4">
+                    <p class="text-gray-700 mb-4">Sinopsis de la película 4</p>
+                    <ul class="text-gray-700 mb-4">
+                        <li>Horario 1: 10:30 AM</li>
+                        <li>Horario 2: 1:30 PM</li>
+                        <li>Horario 3: 4:30 PM</li>
+                        <li>Horario 4: 7:30 PM</li>
+                    </ul>
+                    <form>
+                        <input type="hidden" name="pelicula" value="4">
+                        <label for="cantidad2" class="block text-gray-700 font-bold mb-2">Cantidad de Entradas:</label>
+                        <input type="number" id="cantidad2" name="cantidad" min="1" max="10" class="w-16 mb-4">
+                        <label for="sala2" class="block text-gray-700 font-bold mb-2">Seleccione una Sala:</label>
+                        <select id="sala2" name="sala" class="w-full mb-4">
+                            <option value="1">Sala 1</option>
+                            <option value="2">Sala 2</option>
+                            <option value="3">Sala 3</option>
+                            <option value="4">Sala 4</option>
+                            <option value="5">Sala 5</option>
+                        </select>
+                        <label for="horario2" class="block text-gray-700 font-bold mb-2">Seleccione un Horario:</label>
+                        <select id="horario2" name="horario" class="w-full mb-4">
+                            <option value="1">Horario 1: 10:00 AM</option>
+                            <option value="2">Horario 2: 1:00 PM</option>
+                            <option value="3">Horario 3: 4:00 PM</option>
+                            <option value="4">Horario 4: 7:00 PM</option>
+                        </select>
+                        <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
+                            Comprar Entrada
+                        </button>
+                    </form>
+                </div>
+
+
+
+                <!-- Película 5 -->
+                <div class="bg-white rounded-lg shadow-md p-8 flex-1">
+                    <h2 class="text-xl font-bold mb-4">Película 5</h2>
+                    <img src="img/peli5.jpeg" alt="Imagen de Película 5" class="w-full object-cover mb-4">
+                    <p class="text-gray-700 mb-4">Sinopsis de la película 5</p>
+                    <ul class="text-gray-700 mb-4">
+                        <li>Horario 1: 11:30 AM</li>
+                        <li>Horario 2: 2:30 PM</li>
+                        <li>Horario 3: 5:30 PM</li>
+                        <li>Horario 4: 8:30 PM</li>
+                    </ul>
+                    <form>
+                        <input type="hidden" name="pelicula" value="5">
+                        <label for="cantidad2" class="block text-gray-700 font-bold mb-2">Cantidad de Entradas:</label>
+                        <input type="number" id="cantidad2" name="cantidad" min="1" max="10" class="w-16 mb-4">
+                        <label for="sala2" class="block text-gray-700 font-bold mb-2">Seleccione una Sala:</label>
+                        <select id="sala2" name="sala" class="w-full mb-4">
+                            <option value="1">Sala 1</option>
+                            <option value="2">Sala 2</option>
+                            <option value="3">Sala 3</option>
+                            <option value="4">Sala 4</option>
+                            <option value="5">Sala 5</option>
+                        </select>
+                        <label for="horario2" class="block text-gray-700 font-bold mb-2">Seleccione un Horario:</label>
+                        <select id="horario2" name="horario" class="w-full mb-4">
+                            <option value="1">Horario 1: 10:00 AM</option>
+                            <option value="2">Horario 2: 1:00 PM</option>
+                            <option value="3">Horario 3: 4:00 PM</option>
+                            <option value="4">Horario 4: 7:00 PM</option>
+                        </select>
+                        <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
+                            Comprar Entrada
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
 
-        <div class="flex flex-col md:flex-row gap-8">
-            <!-- Película 3 -->
-            <div class="bg-white rounded-lg shadow-md p-8 flex-1">
-                <h2 class="text-xl font-bold mb-4">Película 2</h2>
-                <img src="img/peli2.jpg" alt="Imagen de Película 2" class="w-full object-cover mb-4">
-                <p class="text-gray-700 mb-4">Sinopsis de la película 2</p>
-                <ul class="text-gray-700 mb-4">
-                    <li>Horario1: 11:00 AM</li>
-                    <li>Horario 2: 2:00 PM</li>
-                    <li>Horario 3: 5:00 PM</li>
-                    <li>Horario 4: 8:00 PM</li>
-                </ul>
-                <form>
 
-                    <input type="hidden" name="pelicula" value="2">
-                    <label for="cantidad2" class="block text-gray-700 font-bold mb-2">Cantidad de Entradas:</label>
-                    <input type="number" id="cantidad2" name="cantidad" min="1" max="10" class="w-16 mb-4">
-                    <label for="sala2" class="block text-gray-700 font-bold mb-2">Seleccione una Sala:</label>
-                    <select id="sala2" name="sala" class="w-full mb-4">
-                        <option value="1">Sala 1</option>
-                        <option value="2">Sala 2</option>
-                        <option value="3">Sala 3</option>
-                        <option value="4">Sala 4</option>
-                        <option value="5">Sala 5</option>
-                    </select>
-                    <label for="horario2" class="block text-gray-700 font-bold mb-2">Seleccione un Horario:</label>
-                    <select id="horario2" name="horario" class="w-full mb-4">
-                        <option value="1">Horario 1: 10:00 AM</option>
-                        <option value="2">Horario 2: 1:00 PM</option>
-                        <option value="3">Horario 3: 4:00 PM</option>
-                        <option value="4">Horario 4: 7:00 PM</option>
-                    </select>
-                    <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
-                        Comprar Entrada
-                    </button>
-                </form>
-            </div>
-        </div>
+    <style>
+        @keyframes bubbleAnimation {
+            0% {
+                transform: translateY(0) rotate(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
 
-        <!-- Continuación del código anterior -->
+        .bubble-container {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
 
-        <div class="flex flex-col md:flex-row gap-8">
+        .bubble {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: #FFC3D5;
+            border-radius: 50%;
+            animation: bubbleAnimation 2s ease-in-out infinite;
+        }
 
+        .bubble:nth-child(1) {
+            animation-delay: 0s;
+        }
 
-            <!-- Película 3 -->
-            <div class="bg-white rounded-lg shadow-md p-8 flex-1">
-                <h2 class="text-xl font-bold mb-4">Película 3</h2>
-                <img src="img/peli3.jpeg" alt="Imagen de Película 3" class="w-full object-cover mb-4">
-                <p class="text-gray-700 mb-4">Sinopsis de la película 3</p>
-                <ul class="text-gray-700 mb-4">
-                    <li>Horario 1: 9:00 AM</li>
-                    <li>Horario 2: 12:00 PM</li>
-                    <li>Horario 3: 3:00 PM</li>
-                    <li>Horario 4: 6:00 PM</li>
-                </ul>
-                <form>
+        .bubble:nth-child(2) {
+            animation-delay: 0.3s;
+        }
 
-                    <input type="hidden" name="pelicula" value="3">
-                    <label for="cantidad2" class="block text-gray-700 font-bold mb-2">Cantidad de Entradas:</label>
-                    <input type="number" id="cantidad2" name="cantidad" min="1" max="10" class="w-16 mb-4">
-                    <label for="sala2" class="block text-gray-700 font-bold mb-2">Seleccione una Sala:</label>
-                    <select id="sala2" name="sala" class="w-full mb-4">
-                        <option value="1">Sala 1</option>
-                        <option value="2">Sala 2</option>
-                        <option value="3">Sala 3</option>
-                        <option value="4">Sala 4</option>
-                        <option value="5">Sala 5</option>
-                    </select>
-                    <label for="horario2" class="block text-gray-700 font-bold mb-2">Seleccione un Horario:</label>
-                    <select id="horario2" name="horario" class="w-full mb-4">
-                        <option value="1">Horario 1: 10:00 AM</option>
-                        <option value="2">Horario 2: 1:00 PM</option>
-                        <option value="3">Horario 3: 4:00 PM</option>
-                        <option value="4">Horario 4: 7:00 PM</option>
-                    </select>
-                    <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
-                        Comprar Entrada
-                    </button>
-                </form>
-            </div>
+        .bubble:nth-child(3) {
+            animation-delay: 0.6s;
+        }
 
-            <!-- Película 4 -->
-            <div class="bg-white rounded-lg shadow-md p-8 flex-1">
-                <h2 class="text-xl font-bold mb-4">Película 4</h2>
-                <img src="img/peli4.jpeg" alt="Imagen de Película 4" class="w-full object-cover mb-4">
-                <p class="text-gray-700 mb-4">Sinopsis de la película 4</p>
-                <ul class="text-gray-700 mb-4">
-                    <li>Horario 1: 10:30 AM</li>
-                    <li>Horario 2: 1:30 PM</li>
-                    <li>Horario 3: 4:30 PM</li>
-                    <li>Horario 4: 7:30 PM</li>
-                </ul>
-                <form>
-                    <input type="hidden" name="pelicula" value="4">
-                    <label for="cantidad2" class="block text-gray-700 font-bold mb-2">Cantidad de Entradas:</label>
-                    <input type="number" id="cantidad2" name="cantidad" min="1" max="10" class="w-16 mb-4">
-                    <label for="sala2" class="block text-gray-700 font-bold mb-2">Seleccione una Sala:</label>
-                    <select id="sala2" name="sala" class="w-full mb-4">
-                        <option value="1">Sala 1</option>
-                        <option value="2">Sala 2</option>
-                        <option value="3">Sala 3</option>
-                        <option value="4">Sala 4</option>
-                        <option value="5">Sala 5</option>
-                    </select>
-                    <label for="horario2" class="block text-gray-700 font-bold mb-2">Seleccione un Horario:</label>
-                    <select id="horario2" name="horario" class="w-full mb-4">
-                        <option value="1">Horario 1: 10:00 AM</option>
-                        <option value="2">Horario 2: 1:00 PM</option>
-                        <option value="3">Horario 3: 4:00 PM</option>
-                        <option value="4">Horario 4: 7:00 PM</option>
-                    </select>
-                    <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
-                        Comprar Entrada
-                    </button>
-                </form>
-            </div>
-        </div>
+        /* Add more .bubble:nth-child(n) selectors for additional bubbles */
 
-        <div class="flex flex-col md:flex-row gap-8">
-            <!-- Película 5 -->
-            <div class="bg-white rounded-lg shadow-md p-8 flex-1">
-                <h2 class="text-xl font-bold mb-4">Película 5</h2>
-                <img src="img/peli5.jpeg" alt="Imagen de Película 5" class="w-full object-cover mb-4">
-                <p class="text-gray-700 mb-4">Sinopsis de la película 5</p>
-                <ul class="text-gray-700 mb-4">
-                    <li>Horario 1: 11:30 AM</li>
-                    <li>Horario 2: 2:30 PM</li>
-                    <li>Horario 3: 5:30 PM</li>
-                    <li>Horario 4: 8:30 PM</li>
-                </ul>
-                <form>
-                    <input type="hidden" name="pelicula" value="5">
-                    <label for="cantidad2" class="block text-gray-700 font-bold mb-2">Cantidad de Entradas:</label>
-                    <input type="number" id="cantidad2" name="cantidad" min="1" max="10" class="w-16 mb-4">
-                    <label for="sala2" class="block text-gray-700 font-bold mb-2">Seleccione una Sala:</label>
-                    <select id="sala2" name="sala" class="w-full mb-4">
-                        <option value="1">Sala 1</option>
-                        <option value="2">Sala 2</option>
-                        <option value="3">Sala 3</option>
-                        <option value="4">Sala 4</option>
-                        <option value="5">Sala 5</option>
-                    </select>
-                    <label for="horario2" class="block text-gray-700 font-bold mb-2">Seleccione un Horario:</label>
-                    <select id="horario2" name="horario" class="w-full mb-4">
-                        <option value="1">Horario 1: 10:00 AM</option>
-                        <option value="2">Horario 2: 1:00 PM</option>
-                        <option value="3">Horario 3: 4:00 PM</option>
-                        <option value="4">Horario 4: 7:00 PM</option>
-                    </select>
-                    <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
-                        Comprar Entrada
-                    </button>
-                </form>
-            </div>
-        </div>
+    </style>
+
+    <div class="bubble-container">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <!-- Add more divs with the "bubble" class for additional bubbles -->
     </div>
+
 </div>
 
 
